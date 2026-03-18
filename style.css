@@ -1,0 +1,240 @@
+:root {
+  --pink: #d84268;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: 0.2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  overflow-x: hidden;
+}
+
+section {
+  padding: 2rem 9%;
+}
+
+.about {
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.heading {
+  text-align: center;
+  font-size: 4rem;
+  color: #333;
+  padding: 1rem;
+  margin: 2rem 0;
+  background: rgba(255, 51, 153, 0.05);
+}
+
+.heading span {
+  color: var(--pink);
+}
+
+.btn {
+  displauy: inline-block;
+  margin-top: 1rem;
+  border-radius: 5rem;
+  background: #333;
+  color: #fff;
+  padding: 0.9rem 3.5rem;
+  cursor: pointer;
+  font-size: 1.7rem;
+}
+
+.btn:hover {
+  background: var(--pink);
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8rem;
+  padding: 1.8rem 9%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.4);
+  border-bottom: 0.1rem solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(0.8rem);
+  -webkit-backdrop-filter: blur(0.8rem);
+}
+
+header #toggler {
+  display: none;
+}
+
+header .logo {
+  font-size: 3rem;
+  font-weight: bolder;
+  color: #1d1d1d;
+}
+
+header .logo span {
+  color: var(--pink);
+}
+
+header .navbar a {
+  font-size: 2rem;
+  padding: 0 1.5rem;
+  color: #1d1d1d;
+}
+
+header .navbar a:hover {
+  color: var(--pink);
+}
+
+header .icons a {
+  font-size: 2.3rem;
+  margin-left: 1.5rem;
+  color: #1d1d1d;
+}
+
+header .icons a:hover {
+  color: var(--pink);
+}
+
+header .fa-bars {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  font-size: 2.2rem;
+  line-height: 1;
+  border-radius: 0.5rem;
+  color: #333;
+  cursor: pointer;
+  border: 0.1rem solid rgba(0, 0, 0, 0.3);
+}
+
+.home {
+  position: relative;
+  min-height: 100vh;
+  padding: 0;
+  background: #fff;
+}
+
+.home::before {
+  content: "";
+  display: block;
+  height: 100vh;
+  background: url(img/HEPTA2.png) no-repeat center;
+  background-size: cover;
+}
+
+.home .content {
+  position: absolute;
+  top: 14rem;
+  left: 6%;
+  z-index: 2;
+  max-width: 56rem;
+}
+
+.home .content h3 {
+  font-size: 6rem;
+  color: #f5f5f5;
+  text-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.6);
+}
+
+.home .content span {
+  font-size: 3.5rem;
+  color: var(--pink);
+  padding: 1rem 0;
+  line-height: 1.5;
+  text-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.55);
+}
+
+.home .content p {
+  font-size: 1.5rem;
+  color: #f0f0f0;
+  padding: 1rem 0;
+  line-height: 1.5;
+  text-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.6);
+}
+
+.about .video-container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.about .video-container video {
+  display: block;
+  width: 100%;
+  height: 32rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* responsive */
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+  header {
+    padding: 1.6rem 2rem;
+  }
+  section {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  header .fa-bars {
+    display: inline-flex;
+  }
+  header .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #eee;
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+
+  header #toggler:checked ~ .navbar {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  header .navbar a {
+    margin: 1.5rem;
+    padding: 1.5rem;
+    background: #fff;
+    border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    display: block;
+  }
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+
+  .home::before {
+    height: 80vh;
+  }
+
+  .home .content {
+    top: 12rem;
+    left: 6%;
+    right: 8%;
+    max-width: none;
+  }
+}
