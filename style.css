@@ -1,5 +1,6 @@
 :root {
   --pink: #d84268;
+  --white: #fff;
 }
 
 * {
@@ -10,7 +11,6 @@
   outline: none;
   border: none;
   text-decoration: none;
-  text-transform: capitalize;
   transition: 0.2s linear;
 }
 
@@ -43,8 +43,17 @@ section {
   color: var(--pink);
 }
 
+.heading {
+  text-align: center;
+  font-size: 4rem;
+  color: #333;
+  padding: 1rem;
+  margin: 2rem 0;
+  background: rgba(255, 51, 153, 0.05);
+}
+
 .btn {
-  displauy: inline-block;
+  display: inline-block;
   margin-top: 1rem;
   border-radius: 5rem;
   background: #333;
@@ -95,17 +104,12 @@ header .navbar a {
   color: #1d1d1d;
 }
 
+header .navbar a i {
+  margin-right: 0.6rem;
+  font-size: 1.8rem;
+}
+
 header .navbar a:hover {
-  color: var(--pink);
-}
-
-header .icons a {
-  font-size: 2.3rem;
-  margin-left: 1.5rem;
-  color: #1d1d1d;
-}
-
-header .icons a:hover {
   color: var(--pink);
 }
 
@@ -147,7 +151,7 @@ header .fa-bars {
 }
 
 .home .content h3 {
-  font-size: 6rem;
+  font-size: 5rem;
   color: #f5f5f5;
   text-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.6);
 }
@@ -168,10 +172,22 @@ header .fa-bars {
   text-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.6);
 }
 
+.about .row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+  padding-bottom: 3rem;
+}
+
+.about .row .content {
+  flex: 1 1 40rem;
+}
+
 .about .video-container {
-  width: 100%;
-  max-width: none;
-  margin: 0;
+  flex: 1 1 40rem;
+  min-width: 30rem;
 }
 
 .about .video-container video {
@@ -182,59 +198,15 @@ header .fa-bars {
   object-position: center;
 }
 
-/* responsive */
-@media (max-width: 991px) {
-  html {
-    font-size: 55%;
-  }
-  header {
-    padding: 1.6rem 2rem;
-  }
-  section {
-    padding: 2rem;
-  }
+.about .row .content h3 {
+  font-size: 3rem;
+  color: #333;
 }
 
-@media (max-width: 768px) {
-  header .fa-bars {
-    display: inline-flex;
-  }
-  header .navbar {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #eee;
-    border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
-    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-  }
-
-  header #toggler:checked ~ .navbar {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  }
-
-  header .navbar a {
-    margin: 1.5rem;
-    padding: 1.5rem;
-    background: #fff;
-    border: 0.1rem solid rgba(0, 0, 0, 0.1);
-    display: block;
-  }
-}
-
-@media (max-width: 450px) {
-  html {
-    font-size: 50%;
-  }
-
-  .home::before {
-    height: 80vh;
-  }
-
-  .home .content {
-    top: 12rem;
-    left: 6%;
-    right: 8%;
-    max-width: none;
-  }
+.about .row .content p {
+  font-size: 1.5rem;
+  color: #999;
+  padding: 0.5rem 0;
+  padding-top: 1rem;
+  line-height: 1.5;
 }
