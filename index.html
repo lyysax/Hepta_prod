@@ -22,20 +22,6 @@
       rel="stylesheet"
     />
 
-    <!-- ═══════════════════════════════════════════════════
-         EMAILJS — Envoi de mails sans serveur
-         Étapes de configuration :
-         1. Créez un compte sur https://www.emailjs.com (gratuit, 200 mails/mois)
-         2. "Add New Service" → choisissez Gmail → connectez lisa.anton0705@gmail.com
-            → notez le SERVICE_ID (ex: service_xxxxxxx)
-         3. "Email Templates" → "Create New Template" → configurez :
-              To Email : lisa.anton0705@gmail.com
-              Subject  : {{sujet}}
-              Body     : De : {{nom}} ({{email}})\n\n{{message}}
-            → notez le TEMPLATE_ID (ex: template_xxxxxxx)
-         4. "Account" → "API Keys" → copiez votre PUBLIC_KEY
-         5. Remplacez les 3 valeurs TODO ci-dessous par vos vraies clés
-    ════════════════════════════════════════════════════ -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
     <link rel="stylesheet" href="style.css" />
@@ -94,7 +80,7 @@
           <div class="video-corner tl"></div>
           <div class="video-corner br"></div>
           <video
-            src="img/testvideo.mp4"
+            src="src/testvideo.mp4"
             loop
             autoplay
             muted
@@ -120,12 +106,12 @@
     <!-- ─── Stats strip ───────────────────────────────────── -->
     <div class="stats-strip">
       <div class="stat-item reveal">
-        <div class="stat-number">7<sub>+</sub></div>
+        <div class="stat-number">5<sub>+</sub></div>
         <div class="stat-label">Réalisateurs</div>
         <div class="stat-desc">Un collectif d'étudiants en audiovisuel</div>
       </div>
       <div class="stat-item reveal reveal-delay-1">
-        <div class="stat-number">3–5<sub>min</sub></div>
+        <div class="stat-number">1–3<sub>min</sub></div>
         <div class="stat-label">Durée par film</div>
         <div class="stat-desc">Un format court, une narration dense</div>
       </div>
@@ -146,7 +132,7 @@
       <div class="featured-doc-inner">
         <video
           class="featured-doc-video"
-          src="img/testvideo.mp4"
+          src="src/testvideo.mp4"
           muted
           loop
           autoplay
@@ -157,163 +143,126 @@
 
         <div class="featured-doc-content reveal">
           <span class="featured-badge"
-            ><i class="fa-solid fa-circle-dot"></i> Nouveau film</span
+            ><i class="fa-solid fa-circle-dot"></i> Trailer</span
           >
-          <h2>Les <em>vignes</em><br />de l'estuaire</h2>
-          <p>
-            Entre Médoc et Gironde, des vignerons perpétuent un art millénaire
-            face à un estuaire qui dicte ses humeurs. Un portrait intime d'un
-            territoire viticole unique au monde.
-          </p>
-          <div class="featured-meta">
-            <div class="featured-meta-item">
-              <i class="fa-regular fa-clock"></i> 4 min 32
-            </div>
-            <div class="featured-meta-item">
-              <i class="fa-solid fa-location-dot"></i> Médoc, Gironde
-            </div>
-            <div class="featured-meta-item">
-              <i class="fa-solid fa-tag"></i> Patrimoine viticole
-            </div>
-          </div>
+          <h2>l'ensemble<em></em><br /> de nos tournages</h2>
           <button
             class="btn-play-large"
-            onclick="
-              openModal(
-                'img/testvideo.mp4',
-                'Patrimoine viticole',
-                'Les vignes de l\'estuaire',
-                '4 min 32',
-                'Médoc, Gironde',
-                'Un portrait intime d\'un territoire viticole unique au monde.',
-              )
-            "
+            onclick="openModal(
+              [{'type':'video','src':'src/testvideo.mp4'}],
+              'Portrait documentaire topaze',
+              'Un portrait intime d\'un territoire viticole unique au monde.'
+            )"
           >
             <span class="play-icon"><i class="fa-solid fa-play"></i></span>
-            Regarder le film
+              Voir le trailer
           </button>
         </div>
       </div>
     </div>
 
     <!-- ─── Grille documentaires ──────────────────────────── -->
-    <section class="documentaires">
-      <div class="section-header">
-        <div class="section-header-text reveal">
-          <span class="section-label">Nos films</span>
-          <h2 class="heading">Tous les <span>documentaires</span></h2>
-        </div>
+<section class="documentaires">
+  <div class="section-header">
+    <div class="section-header-text reveal">
+      <span class="section-label">Nos films</span>
+      <h2 class="heading">Tous les <span>documentaires</span></h2>
+    </div>
+  </div>
+
+  <div class="docs-grid">
+
+    <!-- Card 1 — Topaze -->
+    <article
+      class="doc-card reveal"
+      data-title="Portrait documentaire Topaze"
+      data-duration="4 min 32"
+      data-lieu="Gironde"
+      data-desc="Un portrait intime d'un territoire viticole unique au monde."
+      data-media='[
+        {"type":"image","src":"src/topaze/HEPTA-topaze.jpg"},
+        {"type":"image","src":"src/topaze/heptatopaze2.jpg"},
+        {"type":"image","src":"src/topaze/hepta-topaze-3.jpg"},
+        {"type":"image","src":"src/topaze/hepta-topaze-4.jpg"}
+      ]'
+    >
+      <img
+        class="doc-thumb"
+        src="src/topaze/HEPTA-topaze.jpg"
+      ></img>
+
+      <div class="doc-overlay"></div>
+      <div class="doc-play"><i class="fa-solid fa-play"></i></div>
+
+      <div class="doc-info">
+        <h3 class="doc-title">Portrait documentaire Topaze</h3>
       </div>
+    </article>
 
-      <div class="docs-grid">
-        <!-- Card 1 — featured avec vraie vidéo -->
-        <article
-          class="doc-card reveal"
-          data-video="img/testvideo.mp4"
-          data-cat="Patrimoine viticole"
-          data-title="Les vignes de l'estuaire"
-          data-duration="4 min 32"
-          data-lieu="Médoc"
-          data-desc="Un portrait intime d'un territoire viticole unique au monde."
-        >
-          <video
-            class="doc-thumb"
-            src="img/testvideo.mp4"
-            muted
-            loop
-            preload="metadata"
-          ></video>
-          <div class="doc-overlay"></div>
-          <div class="doc-play"><i class="fa-solid fa-play"></i></div>
-          <div class="doc-info">
-            <span class="doc-cat">Patrimoine viticole</span>
-            <h3 class="doc-title">Les vignes de l'estuaire</h3>
-            <div class="doc-meta">
-              <span><i class="fa-regular fa-clock"></i> 4 min 32</span>
-              <span><i class="fa-solid fa-location-dot"></i> Médoc</span>
-            </div>
-          </div>
-        </article>
+    <!-- Card 2 — Bordeaux -->
+    <article
+      class="doc-card reveal reveal-delay-1"
+      data-title="Bordeaux, la pierre et la lumière"
+      data-duration="3 min 45"
+      data-lieu="Bordeaux"
+      data-desc="La lumière dorée sur les façades classées, un voyage architectural."
+      data-media='[
+        {"type":"image","src":"src/bordeaux/hepta-bdx-4.jpg"},
+        {"type":"image","src":"src/bordeaux/hepta-bdx-2.jpg"},
+        {"type":"image","src":"src/bordeaux/hepta-bdx-5.jpg"},
+        {"type":"image","src":"src/bordeaux/hepta-bdx-6.jpg"}
+      ]'
+    >
+      <img
+        class="doc-thumb"
+        src="src/bordeaux/hepta-bdx-4.jpg"
+      ></img>
 
-        <!-- Card 2 — placeholder -->
-        <article class="doc-card reveal reveal-delay-1">
-          <div class="doc-thumb-placeholder">
-            <i class="fa-solid fa-video"></i>
-          </div>
-          <div class="doc-overlay"></div>
-          <div class="doc-play"><i class="fa-solid fa-play"></i></div>
-          <div class="doc-info">
-            <span class="doc-cat">Architecture</span>
-            <h3 class="doc-title">Bordeaux, la pierre et la lumière</h3>
-            <div class="doc-meta">
-              <span><i class="fa-regular fa-clock"></i> 3 min 45</span>
-              <span><i class="fa-solid fa-location-dot"></i> Bordeaux</span>
-            </div>
-          </div>
-        </article>
+      <div class="doc-overlay"></div>
+      <div class="doc-play"><i class="fa-solid fa-play"></i></div>
 
-        <!-- Card 3 -->
-        <article class="doc-card reveal">
-          <div class="doc-thumb-placeholder">
-            <i class="fa-solid fa-video"></i>
-          </div>
-          <div class="doc-overlay"></div>
-          <div class="doc-play"><i class="fa-solid fa-play"></i></div>
-          <div class="doc-info">
-            <span class="doc-cat">Nature</span>
-            <h3 class="doc-title">La dune du Pilat, un géant vivant</h3>
-            <div class="doc-meta">
-              <span><i class="fa-regular fa-clock"></i> 5 min 10</span>
-              <span><i class="fa-solid fa-location-dot"></i> Arcachon</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 4 -->
-        <article class="doc-card reveal reveal-delay-1">
-          <div class="doc-thumb-placeholder">
-            <i class="fa-solid fa-video"></i>
-          </div>
-          <div class="doc-overlay"></div>
-          <div class="doc-play"><i class="fa-solid fa-play"></i></div>
-          <div class="doc-info">
-            <span class="doc-cat">Gastronomie</span>
-            <h3 class="doc-title">L'huître, reine du Bassin</h3>
-            <div class="doc-meta">
-              <span><i class="fa-regular fa-clock"></i> 4 min</span>
-              <span
-                ><i class="fa-solid fa-location-dot"></i> Bassin
-                d'Arcachon</span
-              >
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 5 -->
-        <article class="doc-card reveal reveal-delay-2">
-          <div class="doc-thumb-placeholder">
-            <i class="fa-solid fa-video"></i>
-          </div>
-          <div class="doc-overlay"></div>
-          <div class="doc-play"><i class="fa-solid fa-play"></i></div>
-          <div class="doc-info">
-            <span class="doc-cat">Habitants</span>
-            <h3 class="doc-title">Les gardians du marais</h3>
-            <div class="doc-meta">
-              <span><i class="fa-regular fa-clock"></i> 4 min 50</span>
-              <span
-                ><i class="fa-solid fa-location-dot"></i> Marais de Bruges</span
-              >
-            </div>
-          </div>
-        </article>
+      <div class="doc-info">
+        <h3 class="doc-title">Bordeaux</h3>
       </div>
-    </section>
+    </article>
 
-    <!-- ─── Modal lecteur vidéo ────────────────────────────── -->
+    <!-- Card 3 — Lacanau -->
+    <article
+      class="doc-card reveal"
+      data-title="Lacanau, entre forêt et océan"
+      data-duration="5 min 10"
+      data-lieu="Lacanau"
+      data-desc="Entre dunes, pins et vagues, immersion dans un territoire sauvage."
+      data-media='[
+        {"type":"image","src":"src/lacanau/hepta-lacanau-3.jpg"},
+        {"type":"image","src":"src/lacanau/hepta-lacanau-4.jpg"},
+        {"type":"image","src":"src/lacanau/hepta-lacanau-5.jpg"},
+        {"type":"image","src":"src/lacanau/hepta-arcachon-2.jpg"},
+        {"type":"image","src":"src/lacanau/hepta-arcachon-3.jpg"},
+        {"type":"image","src":"src/lacanau/hepta-arcachon-6.jpg"}
+      ]'
+    >
+      <img
+        class="doc-thumb"
+        src="src/lacanau/hepta-lacanau-3.jpg"
+      ></img>
+
+      <div class="doc-overlay"></div>
+      <div class="doc-play"><i class="fa-solid fa-play"></i></div>
+
+      <div class="doc-info">
+        <h3 class="doc-title">Lacanau, Arcachon</h3>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+    <!-- ─── Modal carousel ────────────────────────────────── -->
     <div class="video-modal" id="videoModal" role="dialog" aria-modal="true">
       <div class="video-modal-bg" id="modalBg"></div>
       <div class="video-modal-inner">
+
         <div class="video-modal-header">
           <div class="video-modal-meta">
             <span class="video-modal-cat" id="modalCat"></span>
@@ -324,10 +273,22 @@
           </button>
         </div>
 
-        <div class="video-modal-player">
-          <video id="modalVideo" controls playsinline>
-            Votre navigateur ne supporte pas la vidéo HTML5.
-          </video>
+        <!-- Carousel -->
+        <div class="modal-carousel">
+          <button class="carousel-arrow carousel-prev" id="carouselPrev" aria-label="Précédent">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+
+          <div class="carousel-track" id="carouselTrack">
+            <!-- items injectés en JS -->
+          </div>
+
+          <button class="carousel-arrow carousel-next" id="carouselNext" aria-label="Suivant">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+
+          <div class="carousel-counter" id="carouselCounter">1 / 1</div>
+          <div class="carousel-dots" id="carouselDots"></div>
         </div>
 
         <div class="video-modal-footer">
@@ -344,6 +305,7 @@
             <span id="modalDesc"></span>
           </div>
         </div>
+
       </div>
     </div>
 
@@ -355,39 +317,34 @@
 
       <div class="equipe-grid">
         <div class="membre-card reveal">
-          <div class="membre-avatar-placeholder">
-            <i class="fa-solid fa-user"></i>
+          <div class="membre-avatar">
+            <img src="src/maxence.jpg" alt="Maxence" />
           </div>
-          <h4>Prénom Nom</h4>
-          <span class="role">Réalisateur·rice</span>
+          <h4>Maxence</h4>
         </div>
         <div class="membre-card reveal reveal-delay-1">
-          <div class="membre-avatar-placeholder">
-            <i class="fa-solid fa-user"></i>
+          <div class="membre-avatar">
+            <img src="src/constance.jpg" alt="Constance" />
           </div>
-          <h4>Prénom Nom</h4>
-          <span class="role">Cadreur·se</span>
+          <h4>Constance</h4>
         </div>
         <div class="membre-card reveal reveal-delay-2">
-          <div class="membre-avatar-placeholder">
-            <i class="fa-solid fa-user"></i>
+          <div class="membre-avatar">
+            <img src="src/robin.jpg" alt="Robin" />
           </div>
-          <h4>Prénom Nom</h4>
-          <span class="role">Monteur·se</span>
+          <h4>Robin</h4>
         </div>
         <div class="membre-card reveal reveal-delay-3">
-          <div class="membre-avatar-placeholder">
-            <i class="fa-solid fa-user"></i>
+          <div class="membre-avatar">
+            <img src="src/lena.jpg" alt="Léna" />
           </div>
-          <h4>Prénom Nom</h4>
-          <span class="role">Ingénieur·e son</span>
+          <h4>Léna</h4>
         </div>
         <div class="membre-card reveal reveal-delay-4">
-          <div class="membre-avatar-placeholder">
-            <i class="fa-solid fa-user"></i>
+          <div class="membre-avatar">
+            <img src="src/nicolas.jpg" alt="Nicolas" />
           </div>
-          <h4>Prénom Nom</h4>
-          <span class="role">Scénariste</span>
+          <h4>Nicolas</h4>
         </div>
       </div>
     </section>
@@ -402,11 +359,6 @@
           Un projet, une collaboration, une question ? Nous serions ravis d'en
           discuter.
         </p>
-
-        <div class="contact-info-item reveal reveal-delay-4">
-          <i class="fa-brands fa-instagram"></i>
-          <span>@hepta.production</span>
-        </div>
       </div>
 
       <div class="contact-form reveal reveal-delay-1" id="contactForm">
@@ -472,11 +424,10 @@
          JAVASCRIPT
     ════════════════════════════════════════════════════════════ -->
     <script>
-      /* ── EmailJS — Remplacez ces 3 valeurs par vos clés
-       (voir les commentaires dans <head> pour la procédure) ── */
-      const EMAILJS_PUBLIC_KEY = "TODO_votre_public_key"; // ex: 'aBcDeFgHiJkLmNoP'
-      const EMAILJS_SERVICE_ID = "TODO_votre_service_id"; // ex: 'service_abc1234'
-      const EMAILJS_TEMPLATE_ID = "TODO_votre_template_id"; // ex: 'template_xyz5678'
+      /* ── EmailJS ──────────────────────────────────────────────── */
+      const EMAILJS_PUBLIC_KEY = "juZLKdTV4PvMfY6NF";
+      const EMAILJS_SERVICE_ID = "service_u2mp7w5";
+      const EMAILJS_TEMPLATE_ID = "template_nezu1wg";
 
       emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 
@@ -488,7 +439,6 @@
         const sujet = document.getElementById("sujet").value.trim();
         const msg = document.getElementById("message").value.trim();
 
-        // Validation simple
         if (!nom || !email || !sujet || !msg) {
           showStatus("Veuillez remplir tous les champs.", "error");
           return;
@@ -498,43 +448,26 @@
           return;
         }
 
-        // État chargement
-        btn.innerHTML =
-          '<i class="fa-solid fa-spinner fa-spin"></i> Envoi en cours…';
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Envoi en cours…';
         btn.style.pointerEvents = "none";
         btn.style.opacity = "0.7";
 
         try {
           await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-            nom,
-            email,
-            sujet,
-            message: msg,
+            nom, email, sujet, message: msg,
           });
-
-          showStatus(
-            '<i class="fa-solid fa-circle-check"></i> Message envoyé ! Nous vous répondrons rapidement.',
-            "success",
-          );
-          document
-            .getElementById("contactForm")
-            .querySelectorAll("input, textarea")
-            .forEach((el) => (el.value = ""));
+          showStatus('<i class="fa-solid fa-circle-check"></i> Message envoyé ! Nous vous répondrons rapidement.', "success");
+          document.getElementById("contactForm").querySelectorAll("input, textarea").forEach((el) => (el.value = ""));
           btn.innerHTML = '<i class="fa-solid fa-check"></i> Envoyé';
           setTimeout(() => {
-            btn.innerHTML =
-              '<i class="fa-solid fa-paper-plane"></i> Envoyer le message';
+            btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Envoyer le message';
             btn.style.pointerEvents = "";
             btn.style.opacity = "";
           }, 5000);
         } catch (err) {
           console.error("EmailJS error:", err);
-          showStatus(
-            "Erreur lors de l'envoi. Réessayez ou contactez-nous directement.",
-            "error",
-          );
-          btn.innerHTML =
-            '<i class="fa-solid fa-paper-plane"></i> Envoyer le message';
+          showStatus("Erreur lors de l'envoi. Réessayez ou contactez-nous directement.", "error");
+          btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Envoyer le message';
           btn.style.pointerEvents = "";
           btn.style.opacity = "";
         }
@@ -546,74 +479,142 @@
         el.className = "form-status " + type;
       }
 
-      /* ── Modal vidéo ──────────────────────────────────────── */
-      const modal = document.getElementById("videoModal");
-      const modalVid = document.getElementById("modalVideo");
-      const modalBg = document.getElementById("modalBg");
-      const modalClose = document.getElementById("modalClose");
+      /* ── Modal carousel ──────────────────────────────────────── */
+      const modal           = document.getElementById("videoModal");
+      const modalBg         = document.getElementById("modalBg");
+      const modalClose      = document.getElementById("modalClose");
+      const carouselTrack   = document.getElementById("carouselTrack");
+      const carouselDots    = document.getElementById("carouselDots");
+      const carouselCounter = document.getElementById("carouselCounter");
+      const prevBtn         = document.getElementById("carouselPrev");
+      const nextBtn         = document.getElementById("carouselNext");
 
-      function openModal(src, cat, title, duration, lieu, desc) {
-        document.getElementById("modalCat").textContent = cat;
-        document.getElementById("modalTitle").textContent = title;
+      let mediaItems   = [];
+      let currentIndex = 0;
+
+      function buildCarousel(items) {
+        mediaItems = items;
+        carouselTrack.innerHTML = "";
+        carouselDots.innerHTML  = "";
+
+        items.forEach((item, i) => {
+          const el = document.createElement("div");
+          el.className = "carousel-item";
+
+          if (item.type === "video") {
+            const v = document.createElement("video");
+            v.src = item.src;
+            v.controls = true;
+            v.playsinline = true;
+            v.preload = "metadata";
+            el.appendChild(v);
+          } else {
+            const img = document.createElement("img");
+            img.src = item.src;
+            img.alt = "";
+            el.appendChild(img);
+          }
+          carouselTrack.appendChild(el);
+
+          const dot = document.createElement("button");
+          dot.className = "carousel-dot" + (i === 0 ? " active" : "");
+          dot.setAttribute("aria-label", `Média ${i + 1}`);
+          dot.addEventListener("click", () => goTo(i));
+          carouselDots.appendChild(dot);
+        });
+
+        goTo(0);
+      }
+
+      function goTo(index) {
+        carouselTrack.querySelectorAll("video").forEach((v) => v.pause());
+
+        currentIndex = index;
+        carouselTrack.style.transform = `translateX(-${index * 100}%)`;
+
+        carouselDots.querySelectorAll(".carousel-dot").forEach((d, i) => {
+          d.classList.toggle("active", i === index);
+        });
+
+        carouselCounter.textContent = `${index + 1} / ${mediaItems.length}`;
+
+        prevBtn.disabled = index === 0;
+        nextBtn.disabled = index === mediaItems.length - 1;
+
+        const activeItem = carouselTrack.children[index];
+        const vid = activeItem && activeItem.querySelector("video");
+        if (vid) setTimeout(() => vid.play(), 100);
+      }
+
+      prevBtn.addEventListener("click", () => { if (currentIndex > 0) goTo(currentIndex - 1); });
+      nextBtn.addEventListener("click", () => { if (currentIndex < mediaItems.length - 1) goTo(currentIndex + 1); });
+
+      // Swipe tactile
+      let touchStartX = 0;
+      modal.addEventListener("touchstart", (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+      modal.addEventListener("touchend", (e) => {
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 50) dx < 0 ? nextBtn.click() : prevBtn.click();
+      });
+
+      function openModal(items, title, duration, lieu, desc, cat = "") {
+        document.getElementById("modalCat").textContent      = cat;
+        document.getElementById("modalTitle").textContent    = title;
         document.getElementById("modalDuration").textContent = duration;
-        document.getElementById("modalLieu").textContent = lieu;
-        document.getElementById("modalDesc").textContent = desc;
-        modalVid.src = src;
-        modalVid.load();
+        document.getElementById("modalLieu").textContent     = lieu;
+        document.getElementById("modalDesc").textContent     = desc;
+
+        buildCarousel(items);
         modal.classList.add("open");
         document.body.style.overflow = "hidden";
-        setTimeout(() => modalVid.play(), 200);
       }
 
       function closeModal() {
         modal.classList.remove("open");
         document.body.style.overflow = "";
-        modalVid.pause();
+        carouselTrack.querySelectorAll("video").forEach((v) => v.pause());
         setTimeout(() => {
-          modalVid.src = "";
+          carouselTrack.innerHTML = "";
+          carouselDots.innerHTML  = "";
         }, 400);
       }
 
       modalBg.addEventListener("click", closeModal);
       modalClose.addEventListener("click", closeModal);
       document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeModal();
+        if (!modal.classList.contains("open")) return;
+        if (e.key === "Escape")      closeModal();
+        if (e.key === "ArrowLeft")   prevBtn.click();
+        if (e.key === "ArrowRight")  nextBtn.click();
       });
 
-      // Cards doc → ouvrir modal si data-video présent
-      document.querySelectorAll(".doc-card[data-video]").forEach((card) => {
+      // Cards → ouvrir carousel
+      document.querySelectorAll(".doc-card[data-media]").forEach((card) => {
         card.addEventListener("click", () => {
+          const items = JSON.parse(card.dataset.media);
           openModal(
-            card.dataset.video,
-            card.dataset.cat || "",
-            card.dataset.title || "",
+            items,
+            card.dataset.title    || "",
             card.dataset.duration || "",
-            card.dataset.lieu || "",
-            card.dataset.desc || "",
+            card.dataset.lieu     || "",
+            card.dataset.desc     || "",
+            card.dataset.cat      || ""
           );
         });
       });
-      // Hover : lire preview silencieuse sur les cards vidéo
+
+      // Hover : preview silencieuse sur les cards vidéo
       document.querySelectorAll(".doc-card .doc-thumb").forEach((vid) => {
         if (vid.tagName !== "VIDEO") return;
         const card = vid.closest(".doc-card");
-        card.addEventListener("mouseenter", () => {
-          vid.currentTime = 0;
-          vid.play();
-        });
-        card.addEventListener("mouseleave", () => {
-          vid.pause();
-          vid.currentTime = 0;
-        });
+        card.addEventListener("mouseenter", () => { vid.currentTime = 0; vid.play(); });
+        card.addEventListener("mouseleave", () => { vid.pause(); vid.currentTime = 0; });
       });
 
       /* ── Curseur personnalisé ─────────────────────────────── */
-      const dot = document.getElementById("cursor-dot");
+      const dot  = document.getElementById("cursor-dot");
       const ring = document.getElementById("cursor-ring");
-      let mx = 0,
-        my = 0,
-        rx = 0,
-        ry = 0;
+      let mx = 0, my = 0, rx = 0, ry = 0;
 
       document.addEventListener("mousemove", (e) => {
         mx = e.clientX;
@@ -627,38 +628,27 @@
         requestAnimationFrame(animRing);
       })();
 
-      // Hover state sur éléments interactifs
-      const hoverTargets =
-        "a, button, .doc-card, .territoire-card, .membre-card, .btn, .btn-play-large";
+      const hoverTargets = "a, button, .doc-card, .territoire-card, .membre-card, .btn, .btn-play-large";
       document.querySelectorAll(hoverTargets).forEach((el) => {
         el.addEventListener("mouseenter", () => ring.classList.add("hovered"));
-        el.addEventListener("mouseleave", () =>
-          ring.classList.remove("hovered"),
-        );
+        el.addEventListener("mouseleave", () => ring.classList.remove("hovered"));
       });
 
       /* ── Header scroll ────────────────────────────────────── */
-      const header = document.getElementById("header");
+      const header   = document.getElementById("header");
       const navLinks = document.querySelectorAll("header .navbar a");
       const allSections = document.querySelectorAll("section[id], div[id]");
 
-      window.addEventListener(
-        "scroll",
-        () => {
-          header.classList.toggle("scrolled", window.scrollY > 40);
-          updateActiveNav();
-        },
-        { passive: true },
-      );
+      window.addEventListener("scroll", () => {
+        header.classList.toggle("scrolled", window.scrollY > 40);
+        updateActiveNav();
+      }, { passive: true });
 
       function updateActiveNav() {
         let cur = "";
-        allSections.forEach((s) => {
-          if (window.scrollY >= s.offsetTop - 200) cur = s.id;
-        });
+        allSections.forEach((s) => { if (window.scrollY >= s.offsetTop - 200) cur = s.id; });
         navLinks.forEach((a) => {
-          const match = a.getAttribute("href") === "#" + cur;
-          a.classList.toggle("active", match);
+          a.classList.toggle("active", a.getAttribute("href") === "#" + cur);
         });
       }
 
@@ -666,26 +656,16 @@
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((e) => {
-            if (e.isIntersecting) {
-              e.target.classList.add("visible");
-              observer.unobserve(e.target);
-            }
+            if (e.isIntersecting) { e.target.classList.add("visible"); observer.unobserve(e.target); }
           });
         },
-        { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
+        { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
       );
-
-      document
-        .querySelectorAll(".reveal")
-        .forEach((el) => observer.observe(el));
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
       /* ── Menu mobile : fermeture au clic ─────────────────── */
       const toggler = document.getElementById("toggler");
-      navLinks.forEach((a) =>
-        a.addEventListener("click", () => {
-          toggler.checked = false;
-        }),
-      );
+      navLinks.forEach((a) => a.addEventListener("click", () => { toggler.checked = false; }));
     </script>
   </body>
 </html>
