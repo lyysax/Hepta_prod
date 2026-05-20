@@ -241,7 +241,7 @@ header {
   padding: 0 7%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* centre le contenu */
   z-index: 1000;
   transition:
     background 0.5s ease,
@@ -250,6 +250,7 @@ header {
   background: transparent;
   border-bottom: 0.1rem solid transparent;
 }
+
 header.scrolled {
   background: rgba(12, 12, 12, 0.88);
   backdrop-filter: blur(2rem);
@@ -269,6 +270,8 @@ header .logo {
   color: var(--white);
   letter-spacing: -0.02em;
   transition: opacity 0.3s;
+  position: absolute;
+  left: 7%;
 }
 header .logo:hover {
   opacity: 0.85;
