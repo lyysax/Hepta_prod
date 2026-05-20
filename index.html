@@ -1,106 +1,691 @@
-<html lang="en">
+<!doctype html>
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Heptà production</title>
+    <title>Heptà Production — Mini-documentaires Gironde</title>
+    <meta
+      name="description"
+      content="Boîte de production de mini-documentaires sur la Nouvelle-Aquitaine, par des étudiants en audiovisuel."
+    />
 
-    <!-- font awesome cdn link -->
+    <!-- Font Awesome 6 -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ═══════════════════════════════════════════════════
+         EMAILJS — Envoi de mails sans serveur
+         Étapes de configuration :
+         1. Créez un compte sur https://www.emailjs.com (gratuit, 200 mails/mois)
+         2. "Add New Service" → choisissez Gmail → connectez lisa.anton0705@gmail.com
+            → notez le SERVICE_ID (ex: service_xxxxxxx)
+         3. "Email Templates" → "Create New Template" → configurez :
+              To Email : lisa.anton0705@gmail.com
+              Subject  : {{sujet}}
+              Body     : De : {{nom}} ({{email}})\n\n{{message}}
+            → notez le TEMPLATE_ID (ex: template_xxxxxxx)
+         4. "Account" → "API Keys" → copiez votre PUBLIC_KEY
+         5. Remplacez les 3 valeurs TODO ci-dessous par vos vraies clés
+    ════════════════════════════════════════════════════ -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <!-- Header start -->
-    <header>
-      <input type="checkbox" name="" id="toggler" />
+    <!-- ─── Curseur ──────────────────────────────────────── -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+
+    <!-- ─── Header ───────────────────────────────────────── -->
+    <header id="header">
+      <input type="checkbox" id="toggler" />
       <label for="toggler" class="fas fa-bars"></label>
 
-      <a href="#" class="logo">Heptà<span>.</span></a>
+      <a href="#home" class="logo">Heptà<span>.</span></a>
 
-      <!-- Navigation bar -->
       <nav class="navbar">
-        <a href="#home"><i class="fa-solid fa-house"></i> Home</a>
-        <a href="#about"><i class="fa-solid fa-circle-info"></i> A propos</a>
-        <a href="#products"></a>
-        <a href="#review"></a>
-        <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+        <a href="#home" class="active"
+          ><i class="fa-solid fa-house"></i> Accueil</a
+        >
+        <a href="#docs"> <i class="fa-solid fa-film"></i> Documentaires</a>
+        <a href="#about"> <i class="fa-solid fa-circle-info"></i> À propos</a>
+        <a href="#contact"> <i class="fa-solid fa-envelope"></i> Contact</a>
       </nav>
     </header>
 
-    <!-- home section -->
+    <!-- ─── Hero ─────────────────────────────────────────── -->
     <section class="home" id="home">
+      <div class="home-bg"></div>
+      <div class="home-bars top"></div>
+
       <div class="content">
-        <h3>La Nouvelle&#8209;Aquitaine sous un nouveau regard</h3>
-        <span></span>
+        <span class="eyebrow">Heptà Production · Bordeaux</span>
+        <h1>La Gironde sous<br /><em>un nouveau regard</em></h1>
         <p>
-          Boite de production de mini documentaires<br />Par des étudiants en
-          Audiovisuel
+          Mini-documentaires réalisés par des étudiants en audiovisuel.<br />
+          Paysages, patrimoine, habitants : la Nouvelle-Aquitaine racontée
+          autrement.
         </p>
-        <a href="#" class="btn">Découvrez nos documentaires</a>
+        <div class="hero-actions">
+          <a href="#docs" class="btn">
+            <i class="fa-solid fa-play"></i> Voir les documentaires
+          </a>
+          <a href="#about" class="btn btn-outline">Notre histoire</a>
+        </div>
       </div>
     </section>
 
-    <!-- about section -->
+    <!-- ─── À propos ─────────────────────────────────────── -->
     <section class="about" id="about">
-      <h1 class="heading"><span>A propos de </span>Heptà</h1>
+      <span class="section-label reveal">Notre histoire</span>
 
       <div class="row">
-        <div class="video-container">
-          <video src="img/testvideo.mp4" loop autoplay muted></video>
+        <div class="video-container reveal reveal-delay-1">
+          <div class="video-corner tl"></div>
+          <div class="video-corner br"></div>
+          <video
+            src="img/testvideo.mp4"
+            loop
+            autoplay
+            muted
+            playsinline
+          ></video>
         </div>
 
-        <div class="content">
-          <h3>Heptà, c'est quoi ?</h3>
+        <div class="content reveal reveal-delay-2">
+          <h3>Heptà, c'est quoi&nbsp;?</h3>
           <p>
-            Heptà est une boîte de production de mini documentaires, créée par
-            des étudiants en audiovisuel. Notre mission est de mettre en lumière
-            la richesse culturelle, historique et sociale de la
-            Nouvelle-Aquitaine à travers des récits captivants et authentiques.
-            Nous croyons que chaque coin de notre région a une histoire à
-            raconter, et nous nous engageons à partager ces histoires avec le
-            monde entier.
+            Heptà est une boîte de production de mini-documentaires, née d'un
+            collectif d'étudiants en audiovisuel passionnés par leur territoire.
+            Notre mission : mettre en lumière la richesse culturelle, historique
+            et humaine de la Gironde et de la Nouvelle-Aquitaine.
           </p>
-          <a href="#" class="btn">Découvrez nos documentaires</a>
+          <a href="#docs" class="btn">
+            <i class="fa-solid fa-clapperboard"></i> Découvrez nos films
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- icons scetion -->
-    <section class="icons-container">
-      <div class="icons">
-        <i class="fa-solid fa-clock"></i>
-        <div class="info">
-          <h3>Mini Documentaires</h3>
-          <span>3-5 minutes</span>
+    <!-- ─── Stats strip ───────────────────────────────────── -->
+    <div class="stats-strip">
+      <div class="stat-item reveal">
+        <div class="stat-number">7<sub>+</sub></div>
+        <div class="stat-label">Réalisateurs</div>
+        <div class="stat-desc">Un collectif d'étudiants en audiovisuel</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-number">3–5<sub>min</sub></div>
+        <div class="stat-label">Durée par film</div>
+        <div class="stat-desc">Un format court, une narration dense</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-number">1</div>
+        <div class="stat-label">Territoire</div>
+        <div class="stat-desc">La Gironde et ses multiples visages</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <div class="stat-number">∞</div>
+        <div class="stat-label">Histoires</div>
+        <div class="stat-desc">Chaque lieu, chaque habitant, une histoire</div>
+      </div>
+    </div>
+
+    <!-- ─── Featured documentaire (testvideo) ────────────── -->
+    <div class="featured-doc" id="docs">
+      <div class="featured-doc-inner">
+        <video
+          class="featured-doc-video"
+          src="img/testvideo.mp4"
+          muted
+          loop
+          autoplay
+          playsinline
+        ></video>
+        <div class="featured-doc-overlay"></div>
+        <div class="featured-doc-overlay-bottom"></div>
+
+        <div class="featured-doc-content reveal">
+          <span class="featured-badge"
+            ><i class="fa-solid fa-circle-dot"></i> Nouveau film</span
+          >
+          <h2>Les <em>vignes</em><br />de l'estuaire</h2>
+          <p>
+            Entre Médoc et Gironde, des vignerons perpétuent un art millénaire
+            face à un estuaire qui dicte ses humeurs. Un portrait intime d'un
+            territoire viticole unique au monde.
+          </p>
+          <div class="featured-meta">
+            <div class="featured-meta-item">
+              <i class="fa-regular fa-clock"></i> 4 min 32
+            </div>
+            <div class="featured-meta-item">
+              <i class="fa-solid fa-location-dot"></i> Médoc, Gironde
+            </div>
+            <div class="featured-meta-item">
+              <i class="fa-solid fa-tag"></i> Patrimoine viticole
+            </div>
+          </div>
+          <button
+            class="btn-play-large"
+            onclick="
+              openModal(
+                'img/testvideo.mp4',
+                'Patrimoine viticole',
+                'Les vignes de l\'estuaire',
+                '4 min 32',
+                'Médoc, Gironde',
+                'Un portrait intime d\'un territoire viticole unique au monde.',
+              )
+            "
+          >
+            <span class="play-icon"><i class="fa-solid fa-play"></i></span>
+            Regarder le film
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Grille documentaires ──────────────────────────── -->
+    <section class="documentaires">
+      <div class="section-header">
+        <div class="section-header-text reveal">
+          <span class="section-label">Nos films</span>
+          <h2 class="heading">Tous les <span>documentaires</span></h2>
         </div>
       </div>
 
-      <div class="icons">
-        <img src="img/" alt="" />
-        <div class="info">
-          <h3>Je sais pas</h3>
-          <span></span>
+      <div class="docs-grid">
+        <!-- Card 1 — featured avec vraie vidéo -->
+        <article
+          class="doc-card reveal"
+          data-video="img/testvideo.mp4"
+          data-cat="Patrimoine viticole"
+          data-title="Les vignes de l'estuaire"
+          data-duration="4 min 32"
+          data-lieu="Médoc"
+          data-desc="Un portrait intime d'un territoire viticole unique au monde."
+        >
+          <video
+            class="doc-thumb"
+            src="img/testvideo.mp4"
+            muted
+            loop
+            preload="metadata"
+          ></video>
+          <div class="doc-overlay"></div>
+          <div class="doc-play"><i class="fa-solid fa-play"></i></div>
+          <div class="doc-info">
+            <span class="doc-cat">Patrimoine viticole</span>
+            <h3 class="doc-title">Les vignes de l'estuaire</h3>
+            <div class="doc-meta">
+              <span><i class="fa-regular fa-clock"></i> 4 min 32</span>
+              <span><i class="fa-solid fa-location-dot"></i> Médoc</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 — placeholder -->
+        <article class="doc-card reveal reveal-delay-1">
+          <div class="doc-thumb-placeholder">
+            <i class="fa-solid fa-video"></i>
+          </div>
+          <div class="doc-overlay"></div>
+          <div class="doc-play"><i class="fa-solid fa-play"></i></div>
+          <div class="doc-info">
+            <span class="doc-cat">Architecture</span>
+            <h3 class="doc-title">Bordeaux, la pierre et la lumière</h3>
+            <div class="doc-meta">
+              <span><i class="fa-regular fa-clock"></i> 3 min 45</span>
+              <span><i class="fa-solid fa-location-dot"></i> Bordeaux</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="doc-card reveal">
+          <div class="doc-thumb-placeholder">
+            <i class="fa-solid fa-video"></i>
+          </div>
+          <div class="doc-overlay"></div>
+          <div class="doc-play"><i class="fa-solid fa-play"></i></div>
+          <div class="doc-info">
+            <span class="doc-cat">Nature</span>
+            <h3 class="doc-title">La dune du Pilat, un géant vivant</h3>
+            <div class="doc-meta">
+              <span><i class="fa-regular fa-clock"></i> 5 min 10</span>
+              <span><i class="fa-solid fa-location-dot"></i> Arcachon</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="doc-card reveal reveal-delay-1">
+          <div class="doc-thumb-placeholder">
+            <i class="fa-solid fa-video"></i>
+          </div>
+          <div class="doc-overlay"></div>
+          <div class="doc-play"><i class="fa-solid fa-play"></i></div>
+          <div class="doc-info">
+            <span class="doc-cat">Gastronomie</span>
+            <h3 class="doc-title">L'huître, reine du Bassin</h3>
+            <div class="doc-meta">
+              <span><i class="fa-regular fa-clock"></i> 4 min</span>
+              <span
+                ><i class="fa-solid fa-location-dot"></i> Bassin
+                d'Arcachon</span
+              >
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="doc-card reveal reveal-delay-2">
+          <div class="doc-thumb-placeholder">
+            <i class="fa-solid fa-video"></i>
+          </div>
+          <div class="doc-overlay"></div>
+          <div class="doc-play"><i class="fa-solid fa-play"></i></div>
+          <div class="doc-info">
+            <span class="doc-cat">Habitants</span>
+            <h3 class="doc-title">Les gardians du marais</h3>
+            <div class="doc-meta">
+              <span><i class="fa-regular fa-clock"></i> 4 min 50</span>
+              <span
+                ><i class="fa-solid fa-location-dot"></i> Marais de Bruges</span
+              >
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ─── Modal lecteur vidéo ────────────────────────────── -->
+    <div class="video-modal" id="videoModal" role="dialog" aria-modal="true">
+      <div class="video-modal-bg" id="modalBg"></div>
+      <div class="video-modal-inner">
+        <div class="video-modal-header">
+          <div class="video-modal-meta">
+            <span class="video-modal-cat" id="modalCat"></span>
+            <h3 class="video-modal-title" id="modalTitle"></h3>
+          </div>
+          <button class="video-modal-close" id="modalClose" aria-label="Fermer">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="video-modal-player">
+          <video id="modalVideo" controls playsinline>
+            Votre navigateur ne supporte pas la vidéo HTML5.
+          </video>
+        </div>
+
+        <div class="video-modal-footer">
+          <div class="video-modal-detail">
+            <i class="fa-regular fa-clock"></i>
+            <span id="modalDuration"></span>
+          </div>
+          <div class="video-modal-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span id="modalLieu"></span>
+          </div>
+          <div class="video-modal-detail" id="modalDescWrap">
+            <i class="fa-solid fa-quote-left"></i>
+            <span id="modalDesc"></span>
+          </div>
         </div>
       </div>
+    </div>
 
-      <div class="icons">
-        <img src="img/" alt="" />
-        <div class="info">
-          <h3>free delivery</h3>
-          <span>on all orders</span>
-        </div>
+    <!-- ─── Équipe ────────────────────────────────────────── -->
+    <section class="equipe" id="equipe">
+      <div class="equipe-header">
+        <h2 class="heading reveal reveal-delay-1"><span>L'équipe</span></h2>
       </div>
 
-      <div class="icons">
-        <img src="img/" alt="" />
-        <div class="info">
-          <h3>free delivery</h3>
-          <span>on all orders</span>
+      <div class="equipe-grid">
+        <div class="membre-card reveal">
+          <div class="membre-avatar-placeholder">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <h4>Prénom Nom</h4>
+          <span class="role">Réalisateur·rice</span>
+        </div>
+        <div class="membre-card reveal reveal-delay-1">
+          <div class="membre-avatar-placeholder">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <h4>Prénom Nom</h4>
+          <span class="role">Cadreur·se</span>
+        </div>
+        <div class="membre-card reveal reveal-delay-2">
+          <div class="membre-avatar-placeholder">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <h4>Prénom Nom</h4>
+          <span class="role">Monteur·se</span>
+        </div>
+        <div class="membre-card reveal reveal-delay-3">
+          <div class="membre-avatar-placeholder">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <h4>Prénom Nom</h4>
+          <span class="role">Ingénieur·e son</span>
+        </div>
+        <div class="membre-card reveal reveal-delay-4">
+          <div class="membre-avatar-placeholder">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <h4>Prénom Nom</h4>
+          <span class="role">Scénariste</span>
         </div>
       </div>
     </section>
+
+    <!-- ─── Contact ───────────────────────────────────────── -->
+    <section class="contact" id="contact">
+      <div class="contact-left">
+        <h2 class="heading reveal reveal-delay-1">
+          Nous<br /><span>contacter</span>
+        </h2>
+        <p class="reveal reveal-delay-2">
+          Un projet, une collaboration, une question ? Nous serions ravis d'en
+          discuter.
+        </p>
+
+        <div class="contact-info-item reveal reveal-delay-4">
+          <i class="fa-brands fa-instagram"></i>
+          <span>@hepta.production</span>
+        </div>
+      </div>
+
+      <div class="contact-form reveal reveal-delay-1" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nom">Nom</label>
+            <input
+              type="text"
+              id="nom"
+              name="nom"
+              placeholder="Votre nom"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="votre@email.com"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sujet">Sujet</label>
+          <input
+            type="text"
+            id="sujet"
+            name="sujet"
+            placeholder="Objet de votre message"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Votre message..."
+            required
+          ></textarea>
+        </div>
+        <div class="form-status" id="formStatus"></div>
+        <button type="button" class="btn" id="submitBtn" onclick="sendEmail()">
+          <i class="fa-solid fa-paper-plane"></i> Envoyer le message
+        </button>
+      </div>
+    </section>
+
+    <!-- ─── Footer ────────────────────────────────────────── -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-logo">Heptà<span>.</span></div>
+        <div class="footer-copy">
+          © 2026 Heptà Production — Étudiants en audiovisuel, Bordeaux.<br />
+        </div>
+      </div>
+    </footer>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         JAVASCRIPT
+    ════════════════════════════════════════════════════════════ -->
+    <script>
+      /* ── EmailJS — Remplacez ces 3 valeurs par vos clés
+       (voir les commentaires dans <head> pour la procédure) ── */
+      const EMAILJS_PUBLIC_KEY = "TODO_votre_public_key"; // ex: 'aBcDeFgHiJkLmNoP'
+      const EMAILJS_SERVICE_ID = "TODO_votre_service_id"; // ex: 'service_abc1234'
+      const EMAILJS_TEMPLATE_ID = "TODO_votre_template_id"; // ex: 'template_xyz5678'
+
+      emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+      async function sendEmail() {
+        const btn = document.getElementById("submitBtn");
+        const status = document.getElementById("formStatus");
+        const nom = document.getElementById("nom").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const sujet = document.getElementById("sujet").value.trim();
+        const msg = document.getElementById("message").value.trim();
+
+        // Validation simple
+        if (!nom || !email || !sujet || !msg) {
+          showStatus("Veuillez remplir tous les champs.", "error");
+          return;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          showStatus("Adresse email invalide.", "error");
+          return;
+        }
+
+        // État chargement
+        btn.innerHTML =
+          '<i class="fa-solid fa-spinner fa-spin"></i> Envoi en cours…';
+        btn.style.pointerEvents = "none";
+        btn.style.opacity = "0.7";
+
+        try {
+          await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+            nom,
+            email,
+            sujet,
+            message: msg,
+          });
+
+          showStatus(
+            '<i class="fa-solid fa-circle-check"></i> Message envoyé ! Nous vous répondrons rapidement.',
+            "success",
+          );
+          document
+            .getElementById("contactForm")
+            .querySelectorAll("input, textarea")
+            .forEach((el) => (el.value = ""));
+          btn.innerHTML = '<i class="fa-solid fa-check"></i> Envoyé';
+          setTimeout(() => {
+            btn.innerHTML =
+              '<i class="fa-solid fa-paper-plane"></i> Envoyer le message';
+            btn.style.pointerEvents = "";
+            btn.style.opacity = "";
+          }, 5000);
+        } catch (err) {
+          console.error("EmailJS error:", err);
+          showStatus(
+            "Erreur lors de l'envoi. Réessayez ou contactez-nous directement.",
+            "error",
+          );
+          btn.innerHTML =
+            '<i class="fa-solid fa-paper-plane"></i> Envoyer le message';
+          btn.style.pointerEvents = "";
+          btn.style.opacity = "";
+        }
+      }
+
+      function showStatus(html, type) {
+        const el = document.getElementById("formStatus");
+        el.innerHTML = html;
+        el.className = "form-status " + type;
+      }
+
+      /* ── Modal vidéo ──────────────────────────────────────── */
+      const modal = document.getElementById("videoModal");
+      const modalVid = document.getElementById("modalVideo");
+      const modalBg = document.getElementById("modalBg");
+      const modalClose = document.getElementById("modalClose");
+
+      function openModal(src, cat, title, duration, lieu, desc) {
+        document.getElementById("modalCat").textContent = cat;
+        document.getElementById("modalTitle").textContent = title;
+        document.getElementById("modalDuration").textContent = duration;
+        document.getElementById("modalLieu").textContent = lieu;
+        document.getElementById("modalDesc").textContent = desc;
+        modalVid.src = src;
+        modalVid.load();
+        modal.classList.add("open");
+        document.body.style.overflow = "hidden";
+        setTimeout(() => modalVid.play(), 200);
+      }
+
+      function closeModal() {
+        modal.classList.remove("open");
+        document.body.style.overflow = "";
+        modalVid.pause();
+        setTimeout(() => {
+          modalVid.src = "";
+        }, 400);
+      }
+
+      modalBg.addEventListener("click", closeModal);
+      modalClose.addEventListener("click", closeModal);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeModal();
+      });
+
+      // Cards doc → ouvrir modal si data-video présent
+      document.querySelectorAll(".doc-card[data-video]").forEach((card) => {
+        card.addEventListener("click", () => {
+          openModal(
+            card.dataset.video,
+            card.dataset.cat || "",
+            card.dataset.title || "",
+            card.dataset.duration || "",
+            card.dataset.lieu || "",
+            card.dataset.desc || "",
+          );
+        });
+      });
+      // Hover : lire preview silencieuse sur les cards vidéo
+      document.querySelectorAll(".doc-card .doc-thumb").forEach((vid) => {
+        if (vid.tagName !== "VIDEO") return;
+        const card = vid.closest(".doc-card");
+        card.addEventListener("mouseenter", () => {
+          vid.currentTime = 0;
+          vid.play();
+        });
+        card.addEventListener("mouseleave", () => {
+          vid.pause();
+          vid.currentTime = 0;
+        });
+      });
+
+      /* ── Curseur personnalisé ─────────────────────────────── */
+      const dot = document.getElementById("cursor-dot");
+      const ring = document.getElementById("cursor-ring");
+      let mx = 0,
+        my = 0,
+        rx = 0,
+        ry = 0;
+
+      document.addEventListener("mousemove", (e) => {
+        mx = e.clientX;
+        my = e.clientY;
+        dot.style.transform = `translate(calc(${mx}px - 50%), calc(${my}px - 50%))`;
+      });
+      (function animRing() {
+        rx += (mx - rx) * 0.14;
+        ry += (my - ry) * 0.14;
+        ring.style.transform = `translate(calc(${rx}px - 50%), calc(${ry}px - 50%))`;
+        requestAnimationFrame(animRing);
+      })();
+
+      // Hover state sur éléments interactifs
+      const hoverTargets =
+        "a, button, .doc-card, .territoire-card, .membre-card, .btn, .btn-play-large";
+      document.querySelectorAll(hoverTargets).forEach((el) => {
+        el.addEventListener("mouseenter", () => ring.classList.add("hovered"));
+        el.addEventListener("mouseleave", () =>
+          ring.classList.remove("hovered"),
+        );
+      });
+
+      /* ── Header scroll ────────────────────────────────────── */
+      const header = document.getElementById("header");
+      const navLinks = document.querySelectorAll("header .navbar a");
+      const allSections = document.querySelectorAll("section[id], div[id]");
+
+      window.addEventListener(
+        "scroll",
+        () => {
+          header.classList.toggle("scrolled", window.scrollY > 40);
+          updateActiveNav();
+        },
+        { passive: true },
+      );
+
+      function updateActiveNav() {
+        let cur = "";
+        allSections.forEach((s) => {
+          if (window.scrollY >= s.offsetTop - 200) cur = s.id;
+        });
+        navLinks.forEach((a) => {
+          const match = a.getAttribute("href") === "#" + cur;
+          a.classList.toggle("active", match);
+        });
+      }
+
+      /* ── Scroll reveal ────────────────────────────────────── */
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
+      );
+
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+
+      /* ── Menu mobile : fermeture au clic ─────────────────── */
+      const toggler = document.getElementById("toggler");
+      navLinks.forEach((a) =>
+        a.addEventListener("click", () => {
+          toggler.checked = false;
+        }),
+      );
+    </script>
   </body>
 </html>
